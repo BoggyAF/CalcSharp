@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CalcSharp.Views.SettingsPage">
+    <ContentPage.Content>
+        <FlexLayout Direction="Column" JustifyContent="Center" AlignContent="Center" BackgroundColor="{DynamicResource BackgroundColor}"
+                     x:Name="settingsStackLayout">
+            <Frame IsVisible="False"
+                   FlexLayout.Basis="10%"/>
+
+            <Label Text="Night mode: Off"
+                   TextColor="{DynamicResource TextColor}"
+                   x:Name="nightmodeLabel"
+                   FlexLayout.AlignSelf="Center"
+                />
+            <Switch x:Name="nightmodeSwitch"
+                FlexLayout.AlignSelf="Center"
+                Toggled="NightmodeSwitch_Toggled"              
+                />
+        </FlexLayout>
+    </ContentPage.Content>
+</ContentPage>

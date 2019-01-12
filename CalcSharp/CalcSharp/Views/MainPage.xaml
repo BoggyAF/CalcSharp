@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:CalcSharp.Views"
+             x:Class="CalcSharp.Views.MainPage">
+    <ContentPage.Content>
+        <FlexLayout Direction="Column" 
+                    JustifyContent="Center" 
+                    AlignContent="Center" 
+                    BackgroundColor="{DynamicResource BackgroundColor}"
+                    x:Name="mainStackLayout">
+            <Frame IsVisible="False"
+                   FlexLayout.Basis="10%"/>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Button  
+                    TextColor="{DynamicResource TextColor}"
+                    BackgroundColor="{DynamicResource AccentBackgroundColor}"
+                    x:Name="nrPrimButton"
+                    Grid.Row="1"
+                    Text="Numar Prim"
+                    FlexLayout.AlignSelf="Center"
+                    Clicked="NrPrimButton_Clicked"/>
+                <Button
+                    TextColor="{DynamicResource TextColor}"
+                    BackgroundColor="{DynamicResource AccentBackgroundColor}"
+                    x:Name="quizButton"
+                    Grid.Row="2"
+                    Text="Quiz"
+                    FlexLayout.AlignSelf="Center"
+                    Clicked="QuizButton_Clicked"/>
+                <Button 
+                    TextColor="{DynamicResource TextColor}"
+                    BackgroundColor="{DynamicResource AccentBackgroundColor}"    
+                    x:Name="scoreboardButton"
+                    Grid.Row="3"
+                    Text="Scoreboard"
+                    FlexLayout.AlignSelf="Center"
+                    Clicked="ScoreboardButton_Clicked"/>
+                <Button
+                    TextColor="{DynamicResource TextColor}"
+                    BackgroundColor="{DynamicResource AccentBackgroundColor}"    
+                    x:Name="settingsButton"
+                    Grid.Row="4"
+                    Text="Settings"
+                    FlexLayout.AlignSelf="Center"
+                    Clicked="SettingsButton_Clicked"/>
+            </Grid>
+
+        </FlexLayout>
+    </ContentPage.Content>
+</ContentPage>

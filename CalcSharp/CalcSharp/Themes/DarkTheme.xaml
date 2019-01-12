@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CalcSharp.Themes.DarkTheme">
+    <Color x:Key="AccentColor">#FFDA56</Color>
+    <Color x:Key="BackgroundColor">#333333</Color>
+    <Color x:Key="AccentBackgroundColor">#474747</Color>
+    <Color x:Key="ButtonBackgroundColor">#474747</Color>
+    <Color x:Key="GreenBackgroundColor">#36720a</Color>
+    <Color x:Key="GreenButtonBackgroundColor">#295907</Color>
+    <Color x:Key="RedBackgroundColor">#8c0b0b</Color>
+    <Color x:Key="RedButtonBackgroundColor">#660707</Color>
+    <Color x:Key="TextColorWhite">#6d6d6d</Color>
+    <Color x:Key="TextColorBlack">#000000</Color>
+    <Color x:Key="TextColor">#A2AEBB</Color>
+    <Color x:Key="ButtonTextColor">#A2AEBB</Color>
+    <Color x:Key="DefaultBackgroundColor">#333333</Color>
+    
+</ResourceDictionary>
