@@ -3,10 +3,169 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CalcSharp.Views.QuizPage">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout 
+                    BackgroundColor="{DynamicResource BackgroundColor}">
+            <Grid
+                  >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Label 
+                       x:Name="questionNumberLabel"
+                       TextColor="{DynamicResource ButtonTextColor}"
+                       Text="Question: 1/10"/>
+                <Frame                        
+                       Grid.Column="2"
+                       IsVisible="False"/>
+                <Label 
+                       x:Name="timeLabel"
+                       TextColor="{DynamicResource ButtonTextColor}"
+                       Grid.Column="3"                       
+                       Text="Time: 15"/>
+            </Grid>
+
+            <StackLayout VerticalOptions="CenterAndExpand">
+                <Label 
+                       x:Name="equationLabel"
+                       TextColor="{DynamicResource ButtonTextColor}"
+                       Grid.ColumnSpan="3" 
+                       Text=""
+                       FontSize="50"
+                       Grid.Row="2"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Center"/>
+            </StackLayout>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Label 
+                       x:Name="wrongLabel"
+                       TextColor="{DynamicResource ButtonTextColor}"
+                       Text="Wrong: 0"/>
+                <Frame  
+                       Grid.Column="2"
+                       IsVisible="False"/>
+                <Label 
+                       x:Name="rightLabel"
+                       TextColor="{DynamicResource ButtonTextColor}"
+                       Grid.Column="3"                                             
+                       Text="Right: 0"/>
+            </Grid>
+
+            <StackLayout Orientation="Vertical" VerticalOptions="End">
+                <Grid ColumnSpacing="1" 
+                  RowSpacing="1" 
+                  HeightRequest="300"
+                  VerticalOptions="CenterAndExpand">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Button Text="7"
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        BackgroundColor="{DynamicResource ButtonBackgroundColor}"
+                        TextColor="{DynamicResource ButtonTextColor}"
+                        x:Name="Button7"
+                        Clicked="Button_Click"/>
+                    <Button Text="8"
+                        x:Name="Button8"
+                        Grid.Column="1"
+                        Grid.Row="1"
+                        TextColor="{DynamicResource ButtonTextColor}"
+                        BackgroundColor="{DynamicResource ButtonBackgroundColor}"
+                        Clicked="Button_Click"/>
+                    <Button Text="9" 
+                        Grid.Row="1"
+                        x:Name="Button9"
+                        Grid.Column="2"
+                        TextColor="{DynamicResource ButtonTextColor}"
+                        BackgroundColor="{DynamicResource ButtonBackgroundColor}"
+                        Clicked="Button_Click"/>
+                    <Button Text="4" 
+                        x:Name="Button4"
+                        Grid.Row="2"
+                        TextColor="{DynamicResource ButtonTextColor}"
+                        BackgroundColor="{DynamicResource ButtonBackgroundColor}"
+                        Clicked="Button_Click"/>
+                    <Button Text="5" 
+                        x:Name="Button5"
+                        Grid.Row="2" 
+                        Grid.Column="1"
+                        TextColor="{DynamicResource ButtonTextColor}"
+                        BackgroundColor="{DynamicResource ButtonBackgroundColor}"
+                        Clicked="Button_Click"/>
+                    <Button Text="6" 
+                        x:Name="Button6"
+                        Grid.Column="2" 
+                        Grid.Row="2"
+                        TextColor="{DynamicResource ButtonTextColor}"
+                        BackgroundColor="{DynamicResource ButtonBackgroundColor}"
+                        Clicked="Button_Click"/>
+                    <Button Text="1" 
+                        x:Name="Button1"
+                        Grid.Row="3"
+                        TextColor="{DynamicResource ButtonTextColor}"
+                        BackgroundColor="{DynamicResource ButtonBackgroundColor}"
+                        Clicked="Button_Click"/>
+                    <Button Text="2" 
+                        x:Name="Button2"
+                        Grid.Row="3" 
+                        Grid.Column="1"
+                        TextColor="{DynamicResource ButtonTextColor}"
+                        BackgroundColor="{DynamicResource ButtonBackgroundColor}"
+                        Clicked="Button_Click"/>
+                    <Button Text="3" 
+                        x:Name="Button3"
+                        Grid.Row="3" 
+                        Grid.Column="2"
+                        TextColor="{DynamicResource ButtonTextColor}"
+                        BackgroundColor="{DynamicResource ButtonBackgroundColor}"
+                        Clicked="Button_Click"/>
+                    <Button Text="Delete" 
+                        x:Name="ButtonDelete"
+                        Grid.Row="4"
+                        TextColor="{DynamicResource ButtonTextColor}"
+                        BackgroundColor="{DynamicResource ButtonBackgroundColor}"
+                        Clicked="Button_Click"/>
+                    <Button Text="0" 
+                        x:Name="Button0"
+                        Grid.Row="4" 
+                        Grid.Column="1"
+                        TextColor="{DynamicResource ButtonTextColor}"
+                        BackgroundColor="{DynamicResource ButtonBackgroundColor}"
+                        Clicked="Button_Click"/>
+                    <Button Text="Calculate"
+                        x:Name="ButtonCalculate" 
+                        Grid.Row="4" 
+                        Grid.Column="2"
+                        TextColor="{DynamicResource ButtonTextColor}"
+                        BackgroundColor="{DynamicResource ButtonBackgroundColor}"
+                        Clicked="Button_Click"/>
+                </Grid>
+            </StackLayout>
+            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

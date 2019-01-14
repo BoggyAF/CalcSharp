@@ -28,6 +28,7 @@ namespace CalcSharp.Views
             base.OnDisappearing();
             App.Current.Resources["BackgroundColor"] = App.Current.Resources["DefaultBackgroundColor"];
             App.Current.Resources["ButtonBackgroundColor"] = App.Current.Resources["AccentBackgroundColor"];
+            App.Current.Resources["ButtonTextColor"] = App.Current.Resources["TextColor"];
         }
 
         public void ButtonsColorChange(int input)
@@ -35,17 +36,17 @@ namespace CalcSharp.Views
             switch (input)
             {
                 case 1:
-                      App.Current.Resources["ButtonBackgroundColor"] = App.Current.Resources["GreenButtonBackgroundColor"];
-                      App.Current.Resources["ButtonTextColor"] = App.Current.Resources["TextColorWhite"];
-                      break;
+                    App.Current.Resources["ButtonBackgroundColor"] = App.Current.Resources["GreenButtonBackgroundColor"];
+                    App.Current.Resources["ButtonTextColor"] = App.Current.Resources["TextColorWhite"];
+                    break;
                 case 0:
-                      App.Current.Resources["ButtonBackgroundColor"] = App.Current.Resources["RedButtonBackgroundColor"];
-                      App.Current.Resources["ButtonTextColor"] = App.Current.Resources["TextColorWhite"];
-                      break;
-                case 2:
-                      App.Current.Resources["ButtonBackgroundColor"] = App.Current.Resources["AccentBackgroundColor"];
-                      App.Current.Resources["ButtonTextColor"] = App.Current.Resources["TextColor"];
-                      break;
+                    App.Current.Resources["ButtonBackgroundColor"] = App.Current.Resources["RedButtonBackgroundColor"];
+                    App.Current.Resources["ButtonTextColor"] = App.Current.Resources["TextColorWhite"];
+                    break;
+                default:
+                    App.Current.Resources["ButtonBackgroundColor"] = App.Current.Resources["AccentBackgroundColor"];
+                    App.Current.Resources["ButtonTextColor"] = App.Current.Resources["TextColor"];
+                    break;
             }
         }
 
@@ -60,20 +61,20 @@ namespace CalcSharp.Views
                 Reset();
         }
 
-        private void AddDigit(string value)
+        public void AddDigit(string value)
         {
             if (number == "0")
             {
                 number = null;
                 calculatorLabel.Text = "0";
                 resultLabel.Text = "Va rugam introduceti un numar valid.";
-                UpdateCalculator();
+                UpdateText();
                 return;
             }
 
             number += value;
 
-            UpdateCalculator();
+            UpdateText();
         }
 
         private void Calculate()
@@ -83,7 +84,7 @@ namespace CalcSharp.Views
                 number = null;
                 calculatorLabel.Text = "0";
                 resultLabel.Text = "Va sa rugam introduceti un numar valid.";
-                UpdateCalculator();
+                UpdateText();
                 return;
             }
 
@@ -96,7 +97,7 @@ namespace CalcSharp.Views
 
                 resultLabel.Text = "Va rugam sa introduceti un numar valid.";
                 calculatorLabel.Text = "0";
-                UpdateCalculator();
+                UpdateText();
                 return;
             }
 
@@ -131,13 +132,13 @@ namespace CalcSharp.Views
         {
             number = null;
             resultLabel.Text = "";
-            UpdateCalculator();
+            UpdateText();
             ButtonsColorChange(2);
             App.Current.Resources["BackgroundColor"] = App.Current.Resources["DefaultBackgroundColor"];
             App.Current.Resources["ButtonBackgroundColor"] = App.Current.Resources["AccentBackgroundColor"];
         }
 
-        private void UpdateCalculator()
+        public void UpdateText()
         {
             calculatorLabel.Text = number;
             //System.Diagnostics.Debug.WriteLine(number);
