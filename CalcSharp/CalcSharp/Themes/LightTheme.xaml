@@ -8,6 +8,8 @@
     <Color x:Key="buttonBackgroundColor">#E2E2E2</Color>
     <Color x:Key="GreenBackgroundColor">#5dc115</Color>
     <Color x:Key="GreenButtonBackgroundColor">#54b211</Color>
+    <Color x:Key="YellowButtonBackgroundColor">#efd92f</Color>
+    <Color x:Key="YellowBackgroundColor">#e5ce1b</Color>
     <Color x:Key="RedBackgroundColor">#d31919</Color>
     <Color x:Key="RedButtonBackgroundColor">#ba1414</Color>
     <Color x:Key="TextColorWhite">#FFFFFF</Color>

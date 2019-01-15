@@ -41,6 +41,14 @@ namespace CalcSharp.Views
             TimerStart();
         }
 
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
+            App.Current.Resources["BackgroundColor"] = App.Current.Resources["DefaultBackgroundColor"];
+            App.Current.Resources["ButtonBackgroundColor"] = App.Current.Resources["AccentBackgroundColor"];
+            App.Current.Resources["ButtonTextColor"] = App.Current.Resources["TextColor"];
+        }
+
         private void TimerStart()
         {
             stop = false;
@@ -107,10 +115,38 @@ namespace CalcSharp.Views
 
         private void DeleteDigit()
         {
-            if (number == null)
+            if (number == "")
                 return;
 
             number = number.Remove(number.Length - 1);
+            UpdateText();
+        }
+
+        public void ColorChange(int input)
+        {
+            switch (input)
+            {
+                case 80:
+                    App.Current.Resources["ButtonBackgroundColor"] = App.Current.Resources["GreenButtonBackgroundColor"];
+                    App.Current.Resources["BackgroundColor"] = App.Current.Resources["GreenBackgroundColor"];
+                    App.Current.Resources["ButtonTextColor"] = App.Current.Resources["TextColorWhite"];
+                    break;
+                case 30:
+                    App.Current.Resources["ButtonBackgroundColor"] = App.Current.Resources["RedButtonBackgroundColor"];
+                    App.Current.Resources["BackgroundColor"] = App.Current.Resources["RedBackgroundColor"];
+                    App.Current.Resources["ButtonTextColor"] = App.Current.Resources["TextColorWhite"];
+                    break;
+                case 50:
+                    App.Current.Resources["ButtonBackgroundColor"] = App.Current.Resources["YellowButtonBackgroundColor"];
+                    App.Current.Resources["BackgroundColor"] = App.Current.Resources["YellowBackgroundColor"];
+                    App.Current.Resources["ButtonTextColor"] = App.Current.Resources["TextColorWhite"];
+                    break;
+                default:
+                    App.Current.Resources["ButtonBackgroundColor"] = App.Current.Resources["AccentBackgroundColor"];
+                    App.Current.Resources["ButtonTextColor"] = App.Current.Resources["TextColor"];
+                    App.Current.Resources["BackgroundColor"] = App.Current.Resources["DefaultBackgroundColor"];
+                    break;
+            }
         }
 
         private void Calculate()
@@ -196,6 +232,19 @@ namespace CalcSharp.Views
             wrongLabel.Text = null;
             rightLabel.Text = null;
             DisableButtons(true);
+            if (rightScore <= 3)
+            {
+                ColorChange(30);
+            }
+            else if (rightScore > 3 && rightScore <= 5)
+            {
+                ColorChange(50);
+            }
+            else
+            {
+                ColorChange(80);
+            }
+
         }
 
         private void DisableButtons(bool isDisabled)
@@ -261,6 +310,7 @@ namespace CalcSharp.Views
             questionNumber = 1;
             wrongScore = 0;
             rightScore = 0;
+            ColorChange(0);
             UpdateText();
         }
 
