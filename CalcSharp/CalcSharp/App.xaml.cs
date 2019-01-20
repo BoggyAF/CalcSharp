@@ -1,6 +1,7 @@
 ﻿using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using CalcSharp.Data;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace CalcSharp
@@ -9,6 +10,7 @@ namespace CalcSharp
     {
         Views.SettingsPage settingsPage = new Views.SettingsPage();
         Utilities.Settings settings = new Utilities.Settings();
+        static ScoreboardDataAccess scoreboardDataAccess;
         public App()
         {
             InitializeComponent();         
@@ -41,6 +43,18 @@ namespace CalcSharp
         protected override void OnResume()
         {
             // Handle when your app resumes
+        }
+
+        public static ScoreboardDataAccess ScoreboardDataAccess
+        {
+            get
+            {
+                if (scoreboardDataAccess == null)
+                {
+                    scoreboardDataAccess = new ScoreboardDataAccess();
+                }
+                return scoreboardDataAccess;
+            }
         }
     }
 }

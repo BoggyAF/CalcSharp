@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CalcSharp.Utilities;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -244,6 +245,8 @@ namespace CalcSharp.Views
             {
                 ColorChange(80);
             }
+            Scoreboard score = new Scoreboard(rightScore, DateTime.Now);
+            App.ScoreboardDataAccess.SaveScore(score);
 
         }
 
