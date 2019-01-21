@@ -245,7 +245,7 @@ namespace CalcSharp.Views
             {
                 ColorChange(80);
             }
-            Scoreboard score = new Scoreboard(rightScore, DateTime.Now);
+            Scoreboard score = new Scoreboard(rightScore*10, DateTime.Now);
             App.ScoreboardDataAccess.SaveScore(score);
 
         }

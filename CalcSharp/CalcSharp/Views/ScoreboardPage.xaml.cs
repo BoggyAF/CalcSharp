@@ -17,19 +17,23 @@ namespace CalcSharp.Views
         ScoreboardDataAccess scoreboardDataAccess = new ScoreboardDataAccess();
         public ScoreboardPage ()
 		{
-            Xamarin.Forms.DataGrid.DataGridComponent.Init();
-
-            InitializeComponent ();
-            this.Title = "Scores";
-
             var database = Xamarin.Forms.DependencyService.Get<ISQL>().GetConnection();
-            listView.ItemsSource = database.Table<Scoreboard>().OrderBy(x=>x.Score).ToList();
 
+            BindingContext = database.Table<Scoreboard>().ToList();
+            InitializeComponent ();
 
-
-            stackLayout.Children.Add(listView);
-
-            Content = stackLayout;
+            ToolbarItems.Add(new ToolbarItem("Reset", null, () =>
+            {
+                Reset();
+            }));
         }
-	}
+
+        private void Reset()
+        {
+            var database = Xamarin.Forms.DependencyService.Get<ISQL>().GetConnection();
+            scoreboardDataAccess.DeleteAllScores();
+            BindingContext = null;
+            BindingContext = database.Table<Scoreboard>().ToList();
+        }
+    }
 }

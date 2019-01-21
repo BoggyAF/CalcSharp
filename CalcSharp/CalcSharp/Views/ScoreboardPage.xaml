@@ -6,8 +6,26 @@
     <ContentPage.Content>
         <StackLayout x:Name="stackLayout"
                      BackgroundColor="{DynamicResource BackgroundColor}">
-            <ListView x:Name="listView">
-                
+            <ListView ItemsSource="{Binding .}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.View>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Id, StringFormat='Id: {0:D}'}"
+                                           TextColor="{DynamicResource TextColor}"
+                                           FontSize="Medium"></Label>
+                                    <Label Text="{Binding Score, StringFormat='Score: {0:D}%'}"
+                                           TextColor="{DynamicResource TextColor}"
+                                           FontSize="Medium"></Label>
+                                    <Label Text="{Binding Date, StringFormat='Date: {0:dd/mm/yyyy}'}"
+                                           TextColor="{DynamicResource TextColor}"
+                                           FontSize="Medium"></Label>
+                                </StackLayout>
+                            </ViewCell.View>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
             </ListView>
         </StackLayout>
     </ContentPage.Content>
