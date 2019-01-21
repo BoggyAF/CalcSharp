@@ -18,7 +18,7 @@
                                     <Label Text="{Binding Score, StringFormat='Score: {0:D}%'}"
                                            TextColor="{DynamicResource TextColor}"
                                            FontSize="Medium"></Label>
-                                    <Label Text="{Binding Date, StringFormat='Date: {0:dd/mm/yyyy}'}"
+                                    <Label Text="{Binding Date, StringFormat='Date: {0:dd/MM/yyyy}'}"
                                            TextColor="{DynamicResource TextColor}"
                                            FontSize="Medium"></Label>
                                 </StackLayout>
